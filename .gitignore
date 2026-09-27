@@ -1,7 +1,6 @@
 .git
 .github
 node_modules/
-bin
 .env
 .env.*
 npm-debug.log*

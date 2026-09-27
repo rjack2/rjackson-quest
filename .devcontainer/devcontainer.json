@@ -2,7 +2,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscodevim.vim"
+        "vscodevim.vim",
+        "ms-azuretools.vscode-containers"
       ]
     }
   }

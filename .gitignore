@@ -1,5 +1,18 @@
 node_modules/
+
 .env
 .env.*
+
 npm-debug.log*
+
 temp-directory/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+crash.log
+
+# Generated archives
+*.zip

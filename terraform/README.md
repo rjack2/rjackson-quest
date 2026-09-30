@@ -1,34 +1,34 @@
-# Terraform AWS Budget
+# Terraform
 
-This Terraform configuration creates a monthly AWS cost budget with email notifications at 50%, 80%, 100% actual spend, and 100% forecasted spend.
+This configuration manages:
 
-## Usage
+- AWS Budget
+- ECR repository
+- VPC and two public subnets
+- Internet Gateway and routing
+- Application Load Balancer
+- ECS/Fargate cluster and service
+- ECS task execution IAM role
+- CloudWatch log group
 
-1. Copy the example variables file:
+## Prerequisites
 
-```bash
-cp terraform.tfvars.example terraform.tfvars
-```
+1. `TF_VAR_BUDGET_EMAIL` is available in the Codespace.
+2. AWS CLI is authenticated.
+3. An image exists in ECR with the tag configured in `local-constants.yaml` (default: `latest`).
 
-2. Edit `terraform.tfvars` with your email address and desired budget.
-
-3. Initialize and review:
+## Commands
 
 ```bash
 terraform init
-terraform fmt
+terraform fmt -recursive
 terraform validate
-terraform plan
+terraform plan -out=tfplan
+terraform apply tfplan
 ```
 
-4. Apply:
+After apply:
 
 ```bash
-terraform apply
+terraform output application_url
 ```
-
-## Notes
-
-- AWS Budgets alerts on spend; it does not automatically stop resources.
-- Keep `terraform.tfvars` out of Git if it contains values you prefer not to commit.
-- Commit `.terraform.lock.hcl` after the first `terraform init` for reproducible provider versions.

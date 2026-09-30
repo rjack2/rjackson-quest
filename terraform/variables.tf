@@ -4,13 +4,8 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "budget_amount" {
-  description = "Monthly AWS budget in USD"
-  type        = number
-  default     = 10
-}
-
-variable "budget_email" {
-  description = "Email address that receives AWS budget alerts"
+variable "BUDGET_EMAIL" {
+  description = "Email address for AWS budget notifications"
   type        = string
+  sensitive   = true
 }

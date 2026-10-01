@@ -47,8 +47,8 @@ module "alb" {
   public_subnet_ids = module.networking.public_subnet_ids
   container_port    = local.constants.application.container_port
   health_check_path = local.constants.application.health_check_path
-  https_enabled   = local.constants.domain.https_enabled
-  certificate_arn = module.acm.certificate_arn
+  https_enabled     = local.constants.domain.https_enabled
+  certificate_arn   = module.acm.certificate_arn
 }
 
 module "ecs" {
@@ -67,4 +67,5 @@ module "ecs" {
   ecs_security_group_id = module.alb.ecs_security_group_id
   target_group_arn      = module.alb.target_group_arn
   execution_role_arn    = module.iam.ecs_execution_role_arn
+  secret_word           = var.SECRET_WORD
 }

@@ -10,3 +10,8 @@ variable "public_subnet_ids" { type = list(string) }
 variable "ecs_security_group_id" { type = string }
 variable "target_group_arn" { type = string }
 variable "execution_role_arn" { type = string }
+variable "secret_word" {
+  description = "SECRET_WORD environment variable injected into the container"
+  type        = string
+  sensitive   = true
+}

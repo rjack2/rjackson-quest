@@ -46,6 +46,10 @@ resource "aws_ecs_task_definition" "this" {
         {
           name  = "PORT"
           value = tostring(var.container_port)
+        },
+        {
+          name  = "SECRET_WORD"
+          value = var.secret_word
         }
       ]
 
@@ -84,7 +88,4 @@ resource "aws_ecs_service" "this" {
 
   health_check_grace_period_seconds = 60
 
-  lifecycle {
-    ignore_changes = [task_definition]
-  }
 }

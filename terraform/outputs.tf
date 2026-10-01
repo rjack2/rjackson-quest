@@ -30,8 +30,13 @@ output "alb_dns_name" {
 
 output "application_url" {
   description = "HTTP URL for the deployed application"
-  value       = "http://${module.alb.alb_dns_name}"
-  output "application_url" {
-  value = local.constants.domain.https_enabled ? "https://${local.constants.domain.name}" : "http://${module.alb.alb_dns_name}"
+  value       = local.constants.domain.https_enabled ? "https://${local.constants.domain.name}" : "http://${module.alb.alb_dns_name}"
 }
 
+output "acm_validation_records" {
+  value = module.acm.domain_validation_options
+}
+
+output "acm_certificate_arn" {
+  value = module.acm.certificate_arn
+}

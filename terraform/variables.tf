@@ -9,3 +9,9 @@ variable "BUDGET_EMAIL" {
   type        = string
   sensitive   = true
 }
+
+variable "SECRET_WORD" {
+  description = "Secret word obtained from the application index page"
+  type        = string
+  sensitive   = true
+}

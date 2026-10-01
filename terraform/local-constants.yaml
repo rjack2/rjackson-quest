@@ -26,4 +26,4 @@ application:
 
 domain:
   name: quest.self-image.com
-  https_enabled: false
+  https_enabled: true

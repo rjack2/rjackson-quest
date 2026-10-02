@@ -16,3 +16,5 @@ crash.log
 
 # Generated archives
 *.zip
+
+*.bak
